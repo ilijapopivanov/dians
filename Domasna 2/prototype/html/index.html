@@ -1,0 +1,56 @@
+
+<!--
+Ova e samo prototip na sajtot koj e samo mobile friendly, ponatamu backend implementacijata ja prodolzuvame so spring.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel = 'stylesheet' href = 'style.css'/>
+    <title>Debar Maalo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+    <script>
+        function initialize() {
+            var map_canvas = document.getElementById('appMapContainer');
+            var map_options = {
+                center: new google.maps.LatLng(42.0024354, 21.4197449),
+                zoom: 17,
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+            }
+            var map = new google.maps.Map(map_canvas, map_options)
+        }
+        google.maps.event.addDomListener(window, 'load', initialize);
+
+        function showLanguageBox() {
+            let box = document.getElementById("languageBox");
+            if (box.style.display === "block") {
+                box.style.display = "none";
+            } else {
+                box.style.display = "block";
+            }
+        }
+    </script>
+</head>
+<body>
+    <div id = 'container'>
+        <div id = 'topLine'>
+            Debar Maalo
+        </div>
+        <div id = 'searchBox'>
+            <input type = 'text' placeholder = 'Search..'>
+        </div>
+        <div id = 'appMapContainer'>
+
+        </div>
+        <div id = 'languageBox'>
+            <button>Macedonian</button>
+            <button>English</button>
+        </div>
+        <div id = 'bottomLine'>
+            <button onclick = 'showLanguageBox()'>Languages</button>
+            <button>Find Route</button>
+        </div>
+    </div>
+</body>
+</html>
